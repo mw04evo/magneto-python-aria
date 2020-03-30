@@ -64,6 +64,7 @@ class AriaDownloadStatus(DownloadStatus):
             status = MirrorStatus.STATUS_CANCELLED
         elif self.__download.has_failed:
             status = MirrorStatus.STATUS_FAILED
+            self._listener.onDownloadError('Unknown Error')
         else:
             status = MirrorStatus.STATUS_DOWNLOADING
         return status
